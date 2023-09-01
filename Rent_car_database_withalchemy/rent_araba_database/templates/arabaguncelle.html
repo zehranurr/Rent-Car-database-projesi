@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="/static/logo.png" />
+    <link rel="stylesheet" href="../static/styles.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+{% block main %}
+<div class="container mt-5">
+    <h1 class="text-center">Araba Güncelleme Sayfası</h1>
+
+    {% block title %}
+    <title>Update Claim</title>
+    {% endblock %}
+
+    {% for urun_sonuc in araba %}
+    <form action="/admin/arabaguncelle?id={{ urun_sonuc.id }}" method="post">
+        <div class="mb-3">
+            <label for="id" class="form-label">Araba ID:</label>
+            <input type="text" class="form-control" id="id" name="id" value="{{ urun_sonuc.id }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="resim" class="form-label">Araba Resim:</label>
+            <input type="text" class="form-control" id="resim" name="resim" value="{{ urun_sonuc.resim}}">
+        </div>
+        <div class="mb-3">
+            <label for="marka" class="form-label">Araba Marka:</label>
+            <input type="text" class="form-control" id="marka" name="marka" value="{{ urun_sonuc.marka }}">
+        </div>
+        <div class="mb-3">
+            <label for="model" class="form-label">Araba Model:</label>
+            <input type="text" class="form-control" id="model" name="model" value="{{ urun_sonuc.model }}">
+        </div>
+        <div class="mb-3">
+            <label for="fiyat" class="form-label">Araba Fiyat:</label>
+            <input type="text" class="form-control" id="fiyat" name="fiyat" value="{{ urun_sonuc.fiyat }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+    </form>
+    {% endfor %}
+</div>
+{% endblock %}
+
+</html>

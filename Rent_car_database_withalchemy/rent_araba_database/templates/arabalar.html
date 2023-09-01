@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include your CSS stylesheets and other meta tags here -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Araba Listesi</title>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="stylesheet" href="/static/responsive.css">
+    <link rel="icon" href="/static/favicon.png" type="image/gif" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+<body>
+    <!-- Your content starts here -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">Araba Listesi</h1>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <a href="/admin/arabaekle" class="btn btn-success">Araba Ekle</a>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Ürün ID</th>
+                            <th>Araba Resim</th>
+                            <th>Araba Marka</th>
+                            <th>Araba Model</th>
+                            <th>Araba Fiyat</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for urun_sonuc in araba %}
+                        <tr>
+                            <td>{{ urun_sonuc.id }}</td>
+                            <td>
+                                <img src="{{ urun_sonuc.resim }}" height="200px" width="200px" class="img-thumbnail" alt="Araba Resim">
+                            </td>
+                            <td>{{ urun_sonuc.marka }}</td>
+                            <td>{{ urun_sonuc.model }}</td>
+                            <td>{{ urun_sonuc.fiyat}}</td>
+                            <td>
+                                <a href="/admin/arabaguncelle?id={{ urun_sonuc.id }}">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnJSWrfbarwLX9W9SKusQjctcSWsgn7UxrUA&usqp=CAU" height="40px" width="40px" alt="Güncelle">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/admin/arabasil?id={{ urun_sonuc.id }}">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1qDxtuWSQ_iXFhA9KZaOLwYP4WokxdLnOkA&usqp=CAU" height="40px" width="40px" alt="Sil">
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Your content ends here -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
+   
+ <script src="/static/js/jquery.min.js"></script>
+      <script src="/static/js/popper.min.js"></script>
+      <script src="/static/js/bootstrap.bundle.min.js"></script>
+      <script src="/static/js/jquery-3.0.0.min.js"></script>
+      <script src="/static/js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="/static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="/static/js/custom.js"></script>
+   </body>
+</html>
